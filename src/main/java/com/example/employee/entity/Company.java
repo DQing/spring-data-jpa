@@ -1,34 +1,27 @@
 package com.example.employee.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "Company")
 public class Company {
-
     @Id
     @GeneratedValue
-    private Long id;
+    private Integer id;
 
-    @Column
+    @NotNull
+    @Column(name = "companyName")
     private String companyName;
 
-    @Column
-    private Long companyNumber;
+    @NotNull
+    @Column(name = "employeesNumber")
+    private Integer employeesNumber;
 
-    public Company() {
-    }
-
-    public Company(String companyName, Long companyNumber) {
-        this.companyName = companyName;
-        this.companyNumber = companyNumber;
-    }
-
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -40,11 +33,11 @@ public class Company {
         this.companyName = companyName;
     }
 
-    public Long getCompanyNumber() {
-        return companyNumber;
+    public Integer getEmployeesNumber() {
+        return employeesNumber;
     }
 
-    public void setCompanyNumber(Long companyNumber) {
-        this.companyNumber = companyNumber;
+    public void setEmployeesNumber(Integer employeesNumber) {
+        this.employeesNumber = employeesNumber;
     }
 }

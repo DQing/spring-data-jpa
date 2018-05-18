@@ -1,86 +1,93 @@
 package com.example.employee.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "Employee")
 public class Employee {
-
     @Id
     @GeneratedValue
-    private Long id;
+    private Integer id;
 
-    @Column
+    @NotNull
     private String name;
 
-    @Column
-    private Long age;
+    @NotNull
+    private Integer age;
 
-    @Column
+    @NotNull
     private String gender;
 
-    @Column
-    private Long companyId;
+    @NotNull
+    private Integer salary;
 
-    @Column
-    private Long salary;
+    @NotNull
+    private Integer companyId;
+
+    public Employee(String name, Integer age, String gender, Integer salary, Integer companyId) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.salary = salary;
+        this.companyId = companyId;
+    }
+
+    public Employee(String name, Integer age, String gender, Integer salary, Integer companyId, Integer id) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.salary = salary;
+        this.companyId = companyId;
+        this.id = id;
+    }
 
     public Employee() {
     }
 
-    public Employee(String name, Long age, String gender, Long companyId, Long salary) {
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
-        this.companyId = companyId;
+    public Integer getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Integer salary) {
         this.salary = salary;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public Employee setId(Integer id) {
         this.id = id;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public Employee setName(String name) {
         this.name = name;
+        return this;
     }
 
-    public Long getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(Long age) {
+    public Employee setAge(Integer age) {
         this.age = age;
+        return this;
     }
 
     public String getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public Employee setGender(String gender) {
         this.gender = gender;
-    }
-
-    public Long getCompanyId() {
-        return companyId;
-    }
-
-    public void setCompanyId(Long companyId) {
-        this.companyId = companyId;
-    }
-
-    public Long getSalary() {
-        return salary;
-    }
-
-    public void setSalary(Long salary) {
-        this.salary = salary;
+        return this;
     }
 }
+
